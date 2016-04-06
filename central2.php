@@ -3,12 +3,12 @@ include ("./conectar.php");
 $hoy=date("Y-m-d");
 
 $sel_tmp="SELECT codalbaran FROM albaranestmp WHERE datediff('$hoy',fecha) > 2";
-$rs_tmp=mysqli_query($sel_tmp);
+$rs_tmp=mysql_query($sel_tmp);
 $contador=0;
 while ($contador < mysql_num_rows($rs_tmp)) {
-	$codalbaran=mysqli_result($rs_tmp,$contador,"codalbaran");
+	$codalbaran=mysql_result($rs_tmp,$contador,"codalbaran");
 	$sel_borrar="DELETE FROM albalineatmp WHERE codalbaran='$codalbaran'";
-	$rs_borrar=mysqli_query($sel_borrar);
+	$rs_borrar=mysql_query($sel_borrar);
 	$contador++;
 }
 
